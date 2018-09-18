@@ -13,6 +13,7 @@
         <tr>
             <th>Name</th>
             <th>Balance</th>
+            <th>Currency</th>
             <th>Animal type</th>
         </tr>
         <tbody>
@@ -20,9 +21,10 @@
         <tr th:object="${bankAccount}">
             <td th:text="*{name}"></td>
             <td th:text="*{balance}"></td>
+            <td th:text="*{currency}"></td>
             <td th:text="*{animalType}"></td>
         </tr>
-        </thead>
+        </tbody>
     </table>
 
 </div>
