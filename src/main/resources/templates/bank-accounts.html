@@ -16,15 +16,17 @@
             <th class="right-justified">Balance</th>
             <th>Currency</th>
             <th>Animal type</th>
+            <th>Owner inclination</th>
         </tr>
         <tbody>
         </tbody>
-        <tr th:each="bankAccount : ${bankAccounts}" th:object="${bankAccount}">
+        <tr th:each="bankAccount : ${bankAccounts}" th:object="${bankAccount}" th:class="*{styleClasses}">
             <td th:text="${bankAccountStat.index}"></td>
             <td th:text="*{name}"></td>
-            <td class="right-justified" th:text="${#numbers.formatDecimal(#object.balance,0,2)}"></td> <!-- TODO extract this to a util method? -->
+            <td class="right-justified" th:text="*{balance}"></td>
             <td th:text="*{currency}"></td>
             <td th:text="*{animalType}"></td>
+            <td th:text="*{ownerInclination}"></td>
         </tr>
         </tbody>
     </table>

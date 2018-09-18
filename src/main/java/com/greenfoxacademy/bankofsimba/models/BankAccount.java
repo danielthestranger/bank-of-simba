@@ -7,15 +7,19 @@ public class BankAccount {
     private BigDecimal balance;
     private String currency;
     private String animalType;
+    private OwnerInclination ownerInclination;
+    private boolean isKing;
 
     public BankAccount() {
     }
 
-    public BankAccount(String name, BigDecimal balance, String currency, String animalType) {
+    public BankAccount(String name, BigDecimal balance, String currency, String animalType, OwnerInclination ownerInclination, boolean isKing) {
         this.name = name;
         this.balance = balance;
         this.currency = currency;
         this.animalType = animalType;
+        this.ownerInclination = ownerInclination;
+        this.isKing = isKing;
     }
 
 
@@ -49,5 +53,21 @@ public class BankAccount {
 
     public void setCurrency(String currency) {
         this.currency = currency;
+    }
+
+    public OwnerInclination getOwnerInclination() {
+        return ownerInclination;
+    }
+
+    public void setOwnerInclination(OwnerInclination ownerInclination) {
+        this.ownerInclination = ownerInclination;
+    }
+
+    public boolean isKing() {
+        return isKing;
+    }
+
+    public void setKing(boolean king) {
+        isKing = king;
     }
 }

@@ -1,14 +1,14 @@
 package com.greenfoxacademy.bankofsimba.controllers;
 
 import com.greenfoxacademy.bankofsimba.models.BankAccount;
+import com.greenfoxacademy.bankofsimba.models.BankAccountFormattedDTO;
+import com.greenfoxacademy.bankofsimba.models.OwnerInclination;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.util.Arrays;
-import java.util.Currency;
 import java.util.List;
 
 @Controller
@@ -20,8 +20,11 @@ public class BankAccountController {
                 "Simba",
                 BigDecimal.valueOf(2000.),
                 "Zebra",
-                "lion");
-        model.addAttribute("bankAccount", bankAccount);
+                "lion",
+                OwnerInclination.GOOD_ONE,
+                false);
+        model.addAttribute("bankAccount",
+                BankAccountFormattedDTO.fromBankAccount(bankAccount));
         return "bank-account";
     }
 
@@ -31,24 +34,37 @@ public class BankAccountController {
                 "Simba",
                 BigDecimal.valueOf(2000.),
                 "Zebra",
-                "lion");
+                "lion",
+                OwnerInclination.GOOD_ONE,
+                false);
         BankAccount nala = new BankAccount(
                 "Nala",
                 BigDecimal.valueOf(500.),
                 "Antelope",
-                "lion");
+                "lion",
+                OwnerInclination.GOOD_ONE,
+                false);
         BankAccount mufasa = new BankAccount(
                 "Mufasa",
                 BigDecimal.valueOf(5000.),
                 "Alopex",
-                "lion");
+                "lion",
+                OwnerInclination.GOOD_ONE,
+                true);
         BankAccount scar = new BankAccount(
                 "Scar",
                 BigDecimal.valueOf(20.),
                 "Rat",
-                "vakarcs");
+                "vakarcs",
+                OwnerInclination.BAD_GUY,
+                false);
 
-        List<BankAccount> bankAccounts = Arrays.asList(simba, nala, mufasa, scar);
+        List<BankAccountFormattedDTO> bankAccounts = Arrays.asList(
+                BankAccountFormattedDTO.fromBankAccount(simba),
+                BankAccountFormattedDTO.fromBankAccount(nala),
+                BankAccountFormattedDTO.fromBankAccount(mufasa),
+                BankAccountFormattedDTO.fromBankAccount(scar)
+        );
         model.addAttribute("bankAccounts", bankAccounts);
         return "bank-accounts";
     }
