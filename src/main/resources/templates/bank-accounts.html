@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <title>Bank Account</title>
+</head>
+<body>
+<h1>Bank Accounts</h1>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Balance</th>
+            <th>Currency</th>
+            <th>Animal type</th>
+        </tr>
+        <tbody>
+        </tbody>
+        <tr th:each="bankAccount : ${bankAccounts}" th:object="${bankAccount}">
+            <td th:text="*{name}"></td>
+            <td th:text="${#numbers.formatDecimal(#object.balance,0,2)}"></td> <!-- TODO extract this to a util method? -->
+            <td th:text="*{currency}"></td>
+            <td th:text="*{animalType}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
