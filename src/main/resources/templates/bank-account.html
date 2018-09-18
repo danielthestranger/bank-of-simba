@@ -12,7 +12,7 @@
         <thead>
         <tr>
             <th>Name</th>
-            <th>Balance</th>
+            <th class="right-justified">Balance</th>
             <th>Currency</th>
             <th>Animal type</th>
         </tr>
@@ -20,7 +20,7 @@
         </tbody>
         <tr th:object="${bankAccount}">
             <td th:text="*{name}"></td>
-            <td th:text="${#numbers.formatDecimal(#object.balance,0,2)}"></td> <!-- TODO extract this to a util method? -->
+            <td class="right-justified" th:text="${#numbers.formatDecimal(#object.balance,0,2)}"></td> <!-- TODO extract this to a util method? -->
             <td th:text="*{currency}"></td>
             <td th:text="*{animalType}"></td>
         </tr>
