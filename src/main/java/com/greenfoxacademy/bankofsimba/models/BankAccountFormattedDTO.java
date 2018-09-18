@@ -1,7 +1,9 @@
 package com.greenfoxacademy.bankofsimba.models;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class BankAccountFormattedDTO {
     private String name;
@@ -18,6 +20,15 @@ public class BankAccountFormattedDTO {
     public static BankAccountFormattedDTO fromBankAccount(BankAccount bankAccount) {
         return new BankAccountFormattedDTO(bankAccount);
     }
+
+    public static List<BankAccountFormattedDTO> fromBankAccounts(List<BankAccount> bankAccounts) {
+        List<BankAccountFormattedDTO> bankAccountFormattedDTOs = new ArrayList<>();
+        for (BankAccount bankAccount : bankAccounts) {
+            bankAccountFormattedDTOs.add(BankAccountFormattedDTO.fromBankAccount(bankAccount));
+        }
+        return bankAccountFormattedDTOs;
+    }
+
 
     public BankAccountFormattedDTO() {
         this.decimalFormat = new DecimalFormat("0.00");
