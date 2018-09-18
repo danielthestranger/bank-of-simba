@@ -27,6 +27,11 @@
             <td th:text="*{currency}"></td>
             <td th:text="*{animalType}"></td>
             <td th:text="*{ownerInclination}"></td>
+            <td>
+                <form action="#" th:action="@{'/show-list/' + ${bankAccountStat.index} + '/raise'}" method="post">
+                    <input type="submit" value="Raise"/>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>

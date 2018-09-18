@@ -6,6 +6,8 @@ import com.greenfoxacademy.bankofsimba.models.OwnerInclination;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -69,4 +71,11 @@ public class BankAccountController {
         return "bank-accounts";
     }
 
+    @PostMapping("/show-list/{index}/raise")
+    public BankAccount raiseBalance(@PathVariable(value = "index") int index,
+            Model model) {
+        BankAccount bankAccount = new BankAccount();
+        //TODO implement raiseBalance
+        return bankAccount;
+    }
 }
