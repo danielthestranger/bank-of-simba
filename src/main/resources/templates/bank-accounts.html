@@ -11,6 +11,7 @@
     <table>
         <thead>
         <tr>
+            <th>Index</th>
             <th>Name</th>
             <th class="right-justified">Balance</th>
             <th>Currency</th>
@@ -19,6 +20,7 @@
         <tbody>
         </tbody>
         <tr th:each="bankAccount : ${bankAccounts}" th:object="${bankAccount}">
+            <td th:text="${bankAccountStat.index}"></td>
             <td th:text="*{name}"></td>
             <td class="right-justified" th:text="${#numbers.formatDecimal(#object.balance,0,2)}"></td> <!-- TODO extract this to a util method? -->
             <td th:text="*{currency}"></td>
