@@ -1,60 +1,71 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap-theme.min.css}" rel="stylesheet">
+    <link th:href="@{/style.css}" rel="stylesheet" />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
     <title>Bank Account</title>
 </head>
 <body>
-<h1>Bank Accounts</h1>
-<div>
-    <table>
-        <thead>
-        <tr>
-            <th>Index</th>
-            <th>Name</th>
-            <th class="right-justified">Balance</th>
-            <th>Currency</th>
-            <th>Animal type</th>
-            <th>Owner inclination</th>
-            <th>Is king?</th>
-            <th>Command</th>
-        </tr>
-        <tbody>
-        </tbody>
-        <tr th:each="bankAccount : ${bankAccounts}" th:object="${bankAccount}" th:class="*{styleClasses}">
-            <td th:text="${bankAccountStat.index}"></td>
-            <td th:text="*{name}"></td>
-            <td class="right-justified" th:text="*{balance}"></td>
-            <td th:text="*{currency}"></td>
-            <td th:text="*{animalType}"></td>
-            <td th:text="*{ownerInclination}"></td>
-            <td><input type="checkbox" th:checked="*{king}" disabled /></td>
-            <td>
-                <form action="#" th:action="@{'/show-list/' + ${bankAccountStat.index} + '/raise'}" method="post">
-                    <input type="submit" value="Raise"/>
-                </form>
-            </td>
-        </tr>
-        <tr>
-            <form th:object="${newBankAccount}" action="#" th:action="@{'/add-bank-account/'}" method="post">
-                <td></td>
-                <td><input type="text" id="account-name" th:field="*{name}"/></td>
-                <td><input type="text" id="account-balance" th:field="*{balance}"/></td>
-                <td><input type="text" id="account-currency" th:field="*{currency}"/></td>
-                <td><input type="text" id="account-animal-type" th:field="*{animalType}"/></td>
+<div class="page-header">
+    <h1>Bank Accounts</h1>
+</div>
+<div class="container" role="main">
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Index</th>
+                <th>Name</th>
+                <th class="right-justified">Balance</th>
+                <th>Currency</th>
+                <th>Animal type</th>
+                <th>Owner inclination</th>
+                <th>Is king?</th>
+                <th>Command</th>
+            </tr>
+            <tbody>
+            </tbody>
+            <tr th:each="bankAccount : ${bankAccounts}" th:object="${bankAccount}" th:class="*{styleClasses}">
+                <td th:text="${bankAccountStat.index}"></td>
+                <td th:text="*{name}"></td>
+                <td class="right-justified" th:text="*{balance}"></td>
+                <td th:text="*{currency}"></td>
+                <td th:text="*{animalType}"></td>
+                <td th:text="*{ownerInclination}"></td>
+                <td><input type="checkbox" th:checked="*{king}" disabled /></td>
                 <td>
-                    <select id="account-owner-inclination" th:field="*{ownerInclination}">
-                        <option th:each="option : ${T(com.greenfoxacademy.bankofsimba.models.OwnerInclination).values()}"
-                                th:value="${{option}}" th:text="${option}"></option>
-                    </select>
+                    <form action="#" th:action="@{'/show-list/' + ${bankAccountStat.index} + '/raise'}" method="post">
+                        <input type="submit" value="Raise" class="btn btn-sm btn-default"/>
+                    </form>
                 </td>
-                <td><input type="checkbox" id="account-is-king" th:field="*{king}"/></td>
-                <td><input type="submit" th:value="Add"/></td>
-            </form>
-        </tr>
-        </tbody>
-    </table>
+            </tr>
+            <tr>
+                <form th:object="${newBankAccount}" action="#" th:action="@{'/add-bank-account/'}" method="post">
+                    <td></td>
+                    <td><input type="text" id="account-name" th:field="*{name}"/></td>
+                    <td><input type="text" id="account-balance" th:field="*{balance}"/></td>
+                    <td><input type="text" id="account-currency" th:field="*{currency}"/></td>
+                    <td><input type="text" id="account-animal-type" th:field="*{animalType}"/></td>
+                    <td>
+                        <select id="account-owner-inclination" th:field="*{ownerInclination}">
+                            <option th:each="option : ${T(com.greenfoxacademy.bankofsimba.models.OwnerInclination).values()}"
+                                    th:value="${{option}}" th:text="${option}"></option>
+                        </select>
+                    </td>
+                    <td><input type="checkbox" id="account-is-king" th:field="*{king}"/></td>
+                    <td><input type="submit" th:value="Add" class="btn btn-sm btn-primary"/></td>
+                </form>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>
