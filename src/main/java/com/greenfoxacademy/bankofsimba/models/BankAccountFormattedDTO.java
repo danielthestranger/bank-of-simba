@@ -2,7 +2,7 @@ package com.greenfoxacademy.bankofsimba.models;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.List;
 
 public class BankAccountFormattedDTO {
@@ -15,7 +15,7 @@ public class BankAccountFormattedDTO {
     private String styleClasses;
 
     private DecimalFormat decimalFormat;
-    private HashMap<OwnerInclination, String> ownerInclinationMap;
+//    private HashMap<OwnerInclination, String> ownerInclinationMap;
 
     public static BankAccountFormattedDTO fromBankAccount(BankAccount bankAccount) {
         return new BankAccountFormattedDTO(bankAccount);
@@ -33,9 +33,9 @@ public class BankAccountFormattedDTO {
     public BankAccountFormattedDTO() {
         this.decimalFormat = new DecimalFormat("0.00");
 
-        ownerInclinationMap = new HashMap<>();
-        this.ownerInclinationMap.put(OwnerInclination.GOOD_ONE, "Good One");
-        this.ownerInclinationMap.put(OwnerInclination.BAD_GUY, "Bad Guy");
+//        ownerInclinationMap = new HashMap<>();
+//        this.ownerInclinationMap.put(OwnerInclination.GOOD_ONE, "Good One");
+//        this.ownerInclinationMap.put(OwnerInclination.BAD_GUY, "Bad Guy");
     }
 
     private BankAccountFormattedDTO(BankAccount bankAccount) {
@@ -44,7 +44,7 @@ public class BankAccountFormattedDTO {
         this.balance = decimalFormat.format(bankAccount.getBalance());
         this.currency = bankAccount.getCurrency();
         this.animalType = bankAccount.getAnimalType();
-        this.ownerInclination = ownerInclinationMap.getOrDefault(bankAccount.getOwnerInclination(), "");
+        this.ownerInclination = bankAccount.getOwnerInclination().toString();
         this.isKing = bankAccount.isKing();
 
         this.setStyleClasses();

@@ -44,7 +44,7 @@ public class BankAccountMemoryRepository implements BankAccountRepository {
                 OwnerInclination.BAD_GUY,
                 false);
 
-        //Arrays.toList is not used as it creates fixed-size collection, which cannot be added to
+        //Arrays.toList is not used as it creates a fixed-size collection, which cannot be added to
         bankAccounts.add(simba);
         bankAccounts.add(nala);
         bankAccounts.add(mufasa);
