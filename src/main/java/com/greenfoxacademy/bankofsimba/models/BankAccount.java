@@ -8,8 +8,6 @@ public class BankAccount {
     private String currency;
     private String animalType;
     private OwnerInclination ownerInclination;
-
-
     private boolean king;
 
     public BankAccount() {
