@@ -2,7 +2,6 @@ package com.greenfoxacademy.bankofsimba.models;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-//import java.util.HashMap;
 import java.util.List;
 
 public class BankAccountFormattedDTO {
@@ -15,7 +14,6 @@ public class BankAccountFormattedDTO {
     private String styleClasses;
 
     private DecimalFormat decimalFormat;
-//    private HashMap<OwnerInclination, String> ownerInclinationMap;
 
     public static BankAccountFormattedDTO fromBankAccount(BankAccount bankAccount) {
         return new BankAccountFormattedDTO(bankAccount);
@@ -32,10 +30,6 @@ public class BankAccountFormattedDTO {
 
     public BankAccountFormattedDTO() {
         this.decimalFormat = new DecimalFormat("0.00");
-
-//        ownerInclinationMap = new HashMap<>();
-//        this.ownerInclinationMap.put(OwnerInclination.GOOD_ONE, "Good One");
-//        this.ownerInclinationMap.put(OwnerInclination.BAD_GUY, "Bad Guy");
     }
 
     private BankAccountFormattedDTO(BankAccount bankAccount) {

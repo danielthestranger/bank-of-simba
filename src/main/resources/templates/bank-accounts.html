@@ -40,7 +40,12 @@
                 <td><input type="text" id="account-balance" th:field="*{balance}"/></td>
                 <td><input type="text" id="account-currency" th:field="*{currency}"/></td>
                 <td><input type="text" id="account-animal-type" th:field="*{animalType}"/></td>
-                <td><input type="text" id="account-owner-inclination" th:field="*{ownerInclination}"/></td>
+                <td>
+                    <select id="account-owner-inclination" th:field="*{ownerInclination}">
+                        <option th:each="option : ${T(com.greenfoxacademy.bankofsimba.models.OwnerInclination).values()}"
+                                th:value="${option}" th:text="${option}"></option>
+                    </select>
+                </td>
                 <td><input type="submit" th:value="Add"/></td>
             </form>
         </tr>
