@@ -43,7 +43,7 @@
                 <td>
                     <select id="account-owner-inclination" th:field="*{ownerInclination}">
                         <option th:each="option : ${T(com.greenfoxacademy.bankofsimba.models.OwnerInclination).values()}"
-                                th:value="${option}" th:text="${option}"></option>
+                                th:value="${{option}}" th:text="${option}"></option>
                     </select>
                 </td>
                 <td><input type="submit" th:value="Add"/></td>
