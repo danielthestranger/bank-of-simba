@@ -8,18 +8,20 @@ public class BankAccount {
     private String currency;
     private String animalType;
     private OwnerInclination ownerInclination;
-    private boolean isKing;
+
+
+    private boolean king;
 
     public BankAccount() {
     }
 
-    public BankAccount(String name, BigDecimal balance, String currency, String animalType, OwnerInclination ownerInclination, boolean isKing) {
+    public BankAccount(String name, BigDecimal balance, String currency, String animalType, OwnerInclination ownerInclination, boolean king) {
         this.name = name;
         this.balance = balance;
         this.currency = currency;
         this.animalType = animalType;
         this.ownerInclination = ownerInclination;
-        this.isKing = isKing;
+        this.king = king;
     }
 
 
@@ -64,10 +66,10 @@ public class BankAccount {
     }
 
     public boolean isKing() {
-        return isKing;
+        return king;
     }
 
     public void setKing(boolean king) {
-        isKing = king;
+        this.king = king;
     }
 }
