@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -29,7 +30,7 @@ public class BankAccountController {
     }
 
     @GetMapping("/show")
-    public String showBankAccount(Model model) {
+    public String showTestBankAccount(Model model) {
         BankAccount bankAccount = new BankAccount(
                 "Simba",
                 BigDecimal.valueOf(2000.),
@@ -47,6 +48,7 @@ public class BankAccountController {
         List<BankAccount> rawBankAccounts = bankAccountService.getAllBankAccounts();
         List<BankAccountFormattedDTO> bankAccounts = BankAccountFormattedDTO.fromBankAccounts(rawBankAccounts);
         model.addAttribute("bankAccounts", bankAccounts);
+        model.addAttribute("newBankAccount", new BankAccount());
         return "bank-accounts";
     }
 
@@ -54,6 +56,12 @@ public class BankAccountController {
     public String raiseBalanceDefault(@PathVariable(value = "index") int index,
                                       Model model) {
         bankAccountService.raiseBalanceDefault(index);
+        return "redirect:/show-list";
+    }
+
+    @PostMapping("/add-bank-account/")
+    public String addBankAccount(@ModelAttribute BankAccount newBankAccount) {
+        bankAccountService.add(newBankAccount);
         return "redirect:/show-list";
     }
 }

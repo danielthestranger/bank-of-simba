@@ -35,4 +35,9 @@ public class BankAccountServiceImpl implements BankAccountService {
     public List<BankAccount> getAllBankAccounts() {
         return bankAccountRepository.findAll();
     }
+
+    @Override
+    public BankAccount add(BankAccount bankAccount) {
+        return bankAccountRepository.add(bankAccount);
+    }
 }

@@ -5,13 +5,14 @@ import com.greenfoxacademy.bankofsimba.models.OwnerInclination;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @Repository
 public class BankAccountMemoryRepository implements BankAccountRepository {
 
-    private List<BankAccount> bankAccounts;
+    private List<BankAccount> bankAccounts = new ArrayList<>();
 
     public BankAccountMemoryRepository() {
         BankAccount simba = new BankAccount(
@@ -43,8 +44,13 @@ public class BankAccountMemoryRepository implements BankAccountRepository {
                 OwnerInclination.BAD_GUY,
                 false);
 
-        this.bankAccounts = Arrays.asList(simba,nala,mufasa,scar);
+        //Arrays.toList is not used as it creates fixed-size collection, which cannot be added to
+        bankAccounts.add(simba);
+        bankAccounts.add(nala);
+        bankAccounts.add(mufasa);
+        bankAccounts.add(scar);
     }
+
 
     @Override
     public List<BankAccount> findAll() {
@@ -57,10 +63,22 @@ public class BankAccountMemoryRepository implements BankAccountRepository {
     }
 
     @Override
-    public BankAccount replaceById(int id, BankAccount bankAccount) {
-        bankAccounts.set(id, bankAccount);
-        return bankAccounts.get(id);
+    public BankAccount replaceById(int idToReplace, BankAccount replacementBankAccount) {
+        bankAccounts.set(idToReplace, replacementBankAccount);
+        return bankAccounts.get(idToReplace);
     }
+
+    @Override
+    public BankAccount add(BankAccount bankAccount) {
+        return addNext(bankAccount);
+    }
+
+    private BankAccount addNext(BankAccount bankAccount) {
+        int nextIndex = bankAccounts.size();
+        bankAccounts.add(nextIndex, bankAccount);
+        return getById(nextIndex);
+    }
+
 
     public List<BankAccount> getBankAccounts() {
         return bankAccounts;

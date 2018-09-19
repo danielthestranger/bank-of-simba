@@ -5,10 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 public interface BankAccountRepository {
 
     List<BankAccount> findAll();
     BankAccount getById(int id);
-    BankAccount replaceById(int id, BankAccount bankAccount);
+    BankAccount replaceById(int idToReplace, BankAccount replacementBankAccount);
+    BankAccount add(BankAccount bankAccount);
 }
