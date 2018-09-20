@@ -21,13 +21,15 @@ public class BankAccountMemoryRepository implements BankAccountRepository {
                 "Zebra",
                 "lion",
                 OwnerInclination.GOOD_ONE,
-                false);
+                false,
+                null);
         BankAccount nala = new BankAccount(
                 "Nala",
                 BigDecimal.valueOf(500.),
                 "Antelope",
                 "lion",
                 OwnerInclination.GOOD_ONE,
+                false,
                 false);
         BankAccount mufasa = new BankAccount(
                 "Mufasa",
@@ -35,6 +37,7 @@ public class BankAccountMemoryRepository implements BankAccountRepository {
                 "Alopex",
                 "lion",
                 OwnerInclination.GOOD_ONE,
+                true,
                 true);
         BankAccount scar = new BankAccount(
                 "Scar",
@@ -42,6 +45,7 @@ public class BankAccountMemoryRepository implements BankAccountRepository {
                 "Rat",
                 "vakarcs",
                 OwnerInclination.BAD_GUY,
+                false,
                 false);
 
         //Arrays.toList is not used as it creates a fixed-size collection, which cannot be added to

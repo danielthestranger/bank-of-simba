@@ -1,5 +1,7 @@
 package com.greenfoxacademy.bankofsimba.models;
 
+import com.greenfoxacademy.bankofsimba.utils.BooleanUtil;
+
 import java.security.acl.Owner;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -12,7 +14,7 @@ public class BankAccountFormattedDto {
     private String animalType;
     private OwnerInclination ownerInclination;
     private Boolean king;
-    private Boolean willBeKing;
+    private String willBeKing;
     private String styleClasses;
 
     private DecimalFormat decimalFormat;
@@ -42,7 +44,7 @@ public class BankAccountFormattedDto {
         this.animalType = bankAccount.getAnimalType();
         this.ownerInclination = bankAccount.getOwnerInclination();
         this.king = bankAccount.getKing();
-        this.willBeKing = bankAccount.getWillBeKing();
+        this.willBeKing = BooleanUtil.booleanToString(bankAccount.getWillBeKing());
 
         this.styleClasses = generateStyleClasses();
     }
@@ -79,7 +81,7 @@ public class BankAccountFormattedDto {
         return king;
     }
 
-    public Boolean getWillBeKing() {
+    public String getWillBeKing() {
         return willBeKing;
     }
 

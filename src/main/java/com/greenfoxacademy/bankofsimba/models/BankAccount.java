@@ -14,13 +14,14 @@ public class BankAccount {
     public BankAccount() {
     }
 
-    public BankAccount(String name, BigDecimal balance, String currency, String animalType, OwnerInclination ownerInclination, Boolean king) {
+    public BankAccount(String name, BigDecimal balance, String currency, String animalType, OwnerInclination ownerInclination, Boolean king, Boolean willBeKing) {
         this.name = name;
         this.balance = balance;
         this.currency = currency;
         this.animalType = animalType;
         this.ownerInclination = ownerInclination;
         this.king = king;
+        this.willBeKing = willBeKing;
     }
 
 

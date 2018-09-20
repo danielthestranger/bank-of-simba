@@ -20,7 +20,8 @@ public class BankAccountMemoryRepositoryTest {
                 "Turnip",
                 "mouse",
                 OwnerInclination.GOOD_ONE,
-                false);
+                false,
+                null);
 
         repo.replaceById(0, bankAccount);
     }
@@ -35,7 +36,8 @@ public class BankAccountMemoryRepositoryTest {
                 "Turnip",
                 "mouse",
                 OwnerInclination.GOOD_ONE,
-                false);
+                false,
+                null);
 
         repo.add(bankAccount);
     }

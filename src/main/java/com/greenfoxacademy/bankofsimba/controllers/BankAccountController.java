@@ -37,7 +37,8 @@ public class BankAccountController {
                 "Zebra",
                 "lion",
                 OwnerInclination.GOOD_ONE,
-                false);
+                false,
+                null);
         model.addAttribute("bankAccount",
                 BankAccountFormattedDto.fromBankAccount(bankAccount));
         return "bank-account";
