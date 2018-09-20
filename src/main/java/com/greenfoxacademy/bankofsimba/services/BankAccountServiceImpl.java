@@ -24,7 +24,7 @@ public class BankAccountServiceImpl implements BankAccountService {
     @Override
     public BankAccount raiseBalanceDefault(int id) {
         BankAccount bankAccount = bankAccountRepository.getById(id);
-        if (bankAccount.isKing())
+        if (bankAccount.getKing())
             bankAccount.setBalance(bankAccount.getBalance().add(BigDecimal.valueOf(100.)));
         else
             bankAccount.setBalance(bankAccount.getBalance().add(BigDecimal.valueOf(10.)));
