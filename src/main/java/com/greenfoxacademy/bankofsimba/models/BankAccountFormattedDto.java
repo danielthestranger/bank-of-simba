@@ -1,5 +1,6 @@
 package com.greenfoxacademy.bankofsimba.models;
 
+import java.security.acl.Owner;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ public class BankAccountFormattedDto {
     private String balance;
     private String currency;
     private String animalType;
-    private String ownerInclination;
+    private OwnerInclination ownerInclination;
     private boolean king;
     private String styleClasses;
 
@@ -38,7 +39,7 @@ public class BankAccountFormattedDto {
         this.balance = decimalFormat.format(bankAccount.getBalance());
         this.currency = bankAccount.getCurrency();
         this.animalType = bankAccount.getAnimalType();
-        this.ownerInclination = bankAccount.getOwnerInclination().toString();
+        this.ownerInclination = bankAccount.getOwnerInclination();
         this.king = bankAccount.isKing();
 
         this.styleClasses = generateStyleClasses();
@@ -68,7 +69,7 @@ public class BankAccountFormattedDto {
         return animalType;
     }
 
-    public String getOwnerInclination() {
+    public OwnerInclination getOwnerInclination() {
         return ownerInclination;
     }
 
