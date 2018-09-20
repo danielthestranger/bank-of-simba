@@ -42,17 +42,17 @@
                 <tr>
                     <form th:object="${newBankAccount}" action="#" th:action="@{'/add-bank-account/'}" method="post">
                         <td></td>
-                        <td><input type="text" class="form-control form-control-sm" id="account-name" th:field="*{name}"/></td>
-                        <td><input type="text" class="form-control form-control-sm" id="account-balance" th:field="*{balance}"/></td>
-                        <td><input type="text" class="form-control form-control-sm" id="account-currency" th:field="*{currency}"/></td>
-                        <td><input type="text" class="form-control form-control-sm" id="account-animal-type" th:field="*{animalType}"/></td>
+                        <td><input type="text" class="form-control form-control-sm" th:field="*{name}"/></td>
+                        <td><input type="text" class="form-control form-control-sm" th:field="*{balance}"/></td>
+                        <td><input type="text" class="form-control form-control-sm" th:field="*{currency}"/></td>
+                        <td><input type="text" class="form-control form-control-sm" th:field="*{animalType}"/></td>
                         <td>
-                            <select id="account-owner-inclination" class="form-control form-control-sm" th:field="*{ownerInclination}">
+                            <select class="form-control form-control-sm" th:field="*{ownerInclination}">
                                 <option th:each="option : ${T(com.greenfoxacademy.bankofsimba.models.OwnerInclination).values()}"
                                         th:value="${{option}}" th:text="${option}"></option>
                             </select>
                         </td>
-                        <td><input type="checkbox" class="form-check-input" id="account-is-king" th:field="*{king}"/></td>
+                        <td><input type="checkbox" class="form-check-input" th:field="*{king}"/></td>
                         <td><input type="submit" th:value="Add" class="btn btn-sm btn-primary"/></td>
                     </form>
                 </tr>

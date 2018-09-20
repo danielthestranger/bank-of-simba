@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BankAccountFormattedDTO {
+public class BankAccountFormattedDto {
     private String name;
     private String balance;
     private String currency;
@@ -15,24 +15,24 @@ public class BankAccountFormattedDTO {
 
     private DecimalFormat decimalFormat;
 
-    public static BankAccountFormattedDTO fromBankAccount(BankAccount bankAccount) {
-        return new BankAccountFormattedDTO(bankAccount);
+    public static BankAccountFormattedDto fromBankAccount(BankAccount bankAccount) {
+        return new BankAccountFormattedDto(bankAccount);
     }
 
-    public static List<BankAccountFormattedDTO> fromBankAccounts(List<BankAccount> bankAccounts) {
-        List<BankAccountFormattedDTO> bankAccountFormattedDTOs = new ArrayList<>();
+    public static List<BankAccountFormattedDto> fromBankAccounts(List<BankAccount> bankAccounts) {
+        List<BankAccountFormattedDto> bankAccountFormattedDtos = new ArrayList<>();
         for (BankAccount bankAccount : bankAccounts) {
-            bankAccountFormattedDTOs.add(BankAccountFormattedDTO.fromBankAccount(bankAccount));
+            bankAccountFormattedDtos.add(BankAccountFormattedDto.fromBankAccount(bankAccount));
         }
-        return bankAccountFormattedDTOs;
+        return bankAccountFormattedDtos;
     }
 
 
-    public BankAccountFormattedDTO() {
+    public BankAccountFormattedDto() {
         this.decimalFormat = new DecimalFormat("0.00");
     }
 
-    private BankAccountFormattedDTO(BankAccount bankAccount) {
+    private BankAccountFormattedDto(BankAccount bankAccount) {
         this();
         this.name = bankAccount.getName();
         this.balance = decimalFormat.format(bankAccount.getBalance());
@@ -41,70 +41,42 @@ public class BankAccountFormattedDTO {
         this.ownerInclination = bankAccount.getOwnerInclination().toString();
         this.king = bankAccount.isKing();
 
-        this.setStyleClasses();
+        this.styleClasses = generateStyleClasses();
     }
 
 
-    private void setStyleClasses() {
+    private String generateStyleClasses() {
         if (this.king)
-            styleClasses = "king ";
+            return "king ";
         else
-            styleClasses = "";
+            return "";
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getBalance() {
         return balance;
-    }
-
-    public void setBalance(String balance) {
-        this.balance = balance;
     }
 
     public String getCurrency() {
         return currency;
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
     public String getAnimalType() {
         return animalType;
-    }
-
-    public void setAnimalType(String animalType) {
-        this.animalType = animalType;
     }
 
     public String getOwnerInclination() {
         return ownerInclination;
     }
 
-    public void setOwnerInclination(String ownerInclination) {
-        this.ownerInclination = ownerInclination;
-    }
-
     public boolean isKing() {
         return king;
     }
 
-    public void setKing(boolean king) {
-        this.king = king;
-    }
-
     public String getStyleClasses() {
         return styleClasses;
-    }
-
-    public void setStyleClasses(String styleClasses) {
-        this.styleClasses = styleClasses;
     }
 }

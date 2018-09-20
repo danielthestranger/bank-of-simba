@@ -1,7 +1,7 @@
 package com.greenfoxacademy.bankofsimba.controllers;
 
 import com.greenfoxacademy.bankofsimba.models.BankAccount;
-import com.greenfoxacademy.bankofsimba.models.BankAccountFormattedDTO;
+import com.greenfoxacademy.bankofsimba.models.BankAccountFormattedDto;
 import com.greenfoxacademy.bankofsimba.models.OwnerInclination;
 import com.greenfoxacademy.bankofsimba.services.BankAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,14 +39,14 @@ public class BankAccountController {
                 OwnerInclination.GOOD_ONE,
                 false);
         model.addAttribute("bankAccount",
-                BankAccountFormattedDTO.fromBankAccount(bankAccount));
+                BankAccountFormattedDto.fromBankAccount(bankAccount));
         return "bank-account";
     }
 
     @GetMapping("/show-list")
     public String showBankAccounts(Model model) {
         List<BankAccount> rawBankAccounts = bankAccountService.getAllBankAccounts();
-        List<BankAccountFormattedDTO> bankAccounts = BankAccountFormattedDTO.fromBankAccounts(rawBankAccounts);
+        List<BankAccountFormattedDto> bankAccounts = BankAccountFormattedDto.fromBankAccounts(rawBankAccounts);
         model.addAttribute("bankAccounts", bankAccounts);
         model.addAttribute("newBankAccount", new BankAccount());
         return "bank-accounts";
