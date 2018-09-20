@@ -12,6 +12,7 @@ public class BankAccountFormattedDto {
     private String animalType;
     private OwnerInclination ownerInclination;
     private Boolean king;
+    private Boolean willBeKing;
     private String styleClasses;
 
     private DecimalFormat decimalFormat;
@@ -41,6 +42,7 @@ public class BankAccountFormattedDto {
         this.animalType = bankAccount.getAnimalType();
         this.ownerInclination = bankAccount.getOwnerInclination();
         this.king = bankAccount.getKing();
+        this.willBeKing = bankAccount.getWillBeKing();
 
         this.styleClasses = generateStyleClasses();
     }
@@ -73,8 +75,12 @@ public class BankAccountFormattedDto {
         return ownerInclination;
     }
 
-    public Boolean isKing() {
+    public Boolean getKing() {
         return king;
+    }
+
+    public Boolean getWillBeKing() {
+        return willBeKing;
     }
 
     public String getStyleClasses() {

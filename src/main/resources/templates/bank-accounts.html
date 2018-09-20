@@ -21,6 +21,7 @@
                     <th>Animal type</th>
                     <th>Owner inclination</th>
                     <th>Is king?</th>
+                    <th>Will be king?</th>
                     <th>Command</th>
                 </tr>
                 <tbody>
@@ -33,6 +34,7 @@
                     <td th:text="*{animalType}"></td>
                     <td th:text="*{ownerInclination}"></td>
                     <td><input type="checkbox" class="form-check-input" th:checked="*{king}" disabled /></td>
+                    <td><input type="checkbox" class="form-check-input" th:checked="*{willBeKing}" disabled /></td>
                     <td>
                         <form action="#" th:action="@{'/show-list/' + ${bankAccountStat.index} + '/raise'}" method="post">
                             <input type="submit" value="Raise" class="btn btn-sm btn-default"/>
@@ -53,6 +55,7 @@
                             </select>
                         </td>
                         <td><input type="checkbox" class="form-check-input" th:field="*{king}"/></td>
+                        <td><input type="checkbox" class="form-check-input" th:field="*{willBeKing}"/></td>
                         <td><input type="submit" th:value="Add" class="btn btn-sm btn-primary"/></td>
                     </form>
                 </tr>

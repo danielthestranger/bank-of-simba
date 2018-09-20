@@ -9,6 +9,7 @@ public class BankAccount {
     private String animalType;
     private OwnerInclination ownerInclination;
     private Boolean king;
+    private Boolean willBeKing;
 
     public BankAccount() {
     }
@@ -69,5 +70,13 @@ public class BankAccount {
 
     public void setKing(Boolean king) {
         this.king = king;
+    }
+
+    public Boolean getWillBeKing() {
+        return willBeKing;
+    }
+
+    public void setWillBeKing(Boolean willBeKing) {
+        this.willBeKing = willBeKing;
     }
 }
