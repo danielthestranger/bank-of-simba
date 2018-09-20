@@ -25,7 +25,7 @@
                 </tr>
                 <tbody>
                 </tbody>
-                <tr th:each="bankAccount : ${bankAccounts}" th:object="${bankAccount}" th:class="*{styleClasses}">
+                <tr th:each="bankAccount : ${bankAccounts}" th:object="${bankAccount}" th:classappend="*{styleClasses}">
                     <td th:text="${bankAccountStat.index}"></td>
                     <td th:text="*{name}"></td>
                     <td class="right-justified" th:text="*{balance}"></td>
